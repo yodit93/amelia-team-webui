@@ -1,0 +1,13 @@
+:root {
+    --main-bg-color: rgb(22, 22, 34);
+    --border-color: rgb(48, 60, 82);
+    --primary-btn-bg: #27beff;
+    --primary-btn-hover-bg: #29a4da;
+    --slider-bg: #00d1ff;
+    --link-hover: rgb(148, 163, 184);
+    --light-grey: rgb(156, 163, 175);
+    --card-bg: rgb(28, 29, 42);
+    --card-border: rgb(48, 60, 82);
+    --secondary-btn-bg: #1ff38e;
+    --placeholder-text: rgb(156, 163, 175);
+  }

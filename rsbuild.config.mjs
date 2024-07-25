@@ -13,7 +13,7 @@ export default defineConfig({
 	tools: {
 		rspack: {
 			plugins: [
-        new EnvironmentPlugin(['NODE_ENV', 'DEBUG', 'GEMINI_AI_API_KEY']),
+        new EnvironmentPlugin(['NODE_ENV', 'DEBUG', 'GEMINI_AI_API_KEY', 'AMELIA_SYSTEM_PROMPT']),
 				isDev && new ReactRefreshPlugin(),
 			],
 		},

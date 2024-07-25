@@ -7,7 +7,37 @@ export default function useGemini() {
 
 	function checkForMessages() {
 		const savedMessages = localStorage.getItem("messages");
-		return savedMessages ? JSON.parse(savedMessages) : [];
+		return savedMessages
+			? JSON.parse(savedMessages)
+			: [
+					[
+						{
+							role: "user",
+							parts: [
+								{
+									text: "",
+								},
+							],
+						},
+						{
+							role: "model",
+							parts: [
+								{
+									text: "¡",
+								},
+								{
+									text: "Hola! Soy Amelia, un chatbot. Estoy aquí para ayudarte a crear una co",
+								},
+								{
+									text: "tización para tu chat bot. Por favor, dime más sobre tus necesidades y",
+								},
+								{
+									text: " requerimientos para que pueda ofrecerte una cotización adecuada. ¿Qué tipo de Chatbot te gustaría desarrollar? ¿Tienes alguna idea de las funcionalidades que debería tener? \n",
+								},
+							],
+						},
+					],
+				];
 	}
 
 	useEffect(() => {
@@ -24,7 +54,6 @@ export default function useGemini() {
 		]);
 		setLoading(true);
 		try {
-			console.log("message", payload);
 			const stream = await GeminiService.sendMessages(
 				payload.message,
 				payload.history,
@@ -45,7 +74,7 @@ export default function useGemini() {
 					role: "model",
 					parts: [
 						{
-							text: "Seems like I'm having trouble connecting to the server. Please try again later.",
+							text: "Parece que tengo problemas para conectarme a los servidores.",
 						},
 					],
 				},

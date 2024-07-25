@@ -98,26 +98,22 @@ const Introduction = () => {
 	return (
 		<div className="flex flex-col items-center justify-center">
 			<div className="flex flex-col items-center justify-center">
-				<TextRenderer value="Welcome to Gemini AI" size="xxx-large" />
-				<TextRenderer
-					value="I'm Gemini, a chatbot that can help you with your queries"
-					direction={"l"}
-				/>
+				<TextRenderer value="Amelia Chat" size="xxx-large" />
 			</div>
 			<div className="flex flex-col items-center justify-center">
-				<TextRenderer value="Type a message to get started" />
+				<TextRenderer value="Soy una gente de venta virtual creado por el equipo de Amelia" />
 			</div>
 		</div>
 	);
 };
 
-const RenderMessage = ({ message, msgIndex, loading, messageLength }) => {
+const RenderMessage = ({ message, msgIndex, loading, messageLength}) => {
 	const { parts, role } = message;
 
 	const Loader = () =>
 		msgIndex === messageLength - 1 &&
 		loading && (
-			<div className={styles.loader}>
+			<div className={styles.loader} key={`chat-message-${msgIndex}-loader`}>
 				<div className={styles.dot} />
 				<div className={styles.dot} />
 				<div className={styles.dot} />
@@ -136,7 +132,7 @@ const RenderMessage = ({ message, msgIndex, loading, messageLength }) => {
 						x: role === "user" ? 20 : -20,
 					}}
 					animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
-					key={`motion-message-part-${index}-${role}`}
+					key={`motion-message-part-${index}-${role}}`}
 				>
 					<ReactMarkdown
 						key={`motion-message-part-${index}=${encodeURIComponent(part.text)}`}

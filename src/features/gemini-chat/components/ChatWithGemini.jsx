@@ -120,7 +120,7 @@ const RenderMessage = ({ message, msgIndex, loading, messageLength}) => {
 			</div>
 		);
 
-	return parts.map((part, index) =>
+	return parts?.map((part, index) =>
 		part.text ? (
 			<>
 				<motion.div

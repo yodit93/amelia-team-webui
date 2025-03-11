@@ -5,7 +5,7 @@ import useGemini from "../hooks/useGemini";
 import styles from "./ChatWithGemini.module.css";
 
 const ChatWithGemini = () => {
-	const { messages, loading, sendMessages, updateMessage } = useGemini();
+	const { messages, loading, sendMessages, updateMessage } = useGemini();	
 	const [input, setInput] = useState("");
 
 	const AlwaysScrollToBottom = () => {
@@ -101,7 +101,7 @@ const Introduction = () => {
 				<TextRenderer value="Amelia Chat" size="xxx-large" />
 			</div>
 			<div className="flex flex-col items-center justify-center">
-				<TextRenderer value="Soy una gente de venta virtual creado por el equipo de Amelia" />
+				<TextRenderer value="I am a virtual sales agent created by the Amelia team" />
 			</div>
 		</div>
 	);
@@ -109,7 +109,6 @@ const Introduction = () => {
 
 const RenderMessage = ({ message, msgIndex, loading, messageLength}) => {
 	const { parts, role } = message;
-
 	const Loader = () =>
 		msgIndex === messageLength - 1 &&
 		loading && (
@@ -120,7 +119,7 @@ const RenderMessage = ({ message, msgIndex, loading, messageLength}) => {
 			</div>
 		);
 
-	return parts.map((part, index) =>
+	return parts?.map((part, index) =>
 		part.text ? (
 			<>
 				<motion.div
